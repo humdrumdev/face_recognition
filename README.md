@@ -1,6 +1,10 @@
 ## Face Recognition
 
-Modern face recognition with deep learning and HOG algorithm.  
+The face recognition project makes use of Deep Learning and the HOG (Histogram of Oriented Gradients) algorithm. This face recognition system is designed to find faces in an image (HOG algorithm), affine transformations (align faces using an ensemble of regression trees), face encoding (FaceNet), and make predictions (Linear SVM). 
+
+Using the HOG algorithm, you will compute the weighted vote orientation gradients of 16×16 pixels squares, instead of computing gradients for each pixel of a particular image. This will generate a HOG image that represents the fundamental structure of a face. In the next step, you have to use the dlib Python library for creating and viewing HOG representations to find which part of the image bears the closest resemblance with the trained HOG pattern.
+
+## steps
 
 1. Find faces in image (HOG Algorithm)   
 2. Affine Transformations (Face alignment using an ensemble of regression
@@ -8,7 +12,7 @@ trees)
 3. Encoding Faces (FaceNet)  
 4. Make a prediction (Linear SVM)  
 
-We are using the [Histogram of Oriented Gradients](http://lear.inrialpes.fr/people/triggs/pubs/Dalal-cvpr05.pdf) (HOG) method. Instead of computing gradients for every pixel of the image (way too much detail). We compute the weighted vote orientation  gradients of 16x16 pixels squares. Afterward, we have a simple representation (HOG image) that captures the basic structure of a face.  
+I used the [Histogram of Oriented Gradients](http://lear.inrialpes.fr/people/triggs/pubs/Dalal-cvpr05.pdf) (HOG) method. Instead of computing gradients for every pixel of the image (way too much detail). We compute the weighted vote orientation  gradients of 16x16 pixels squares. Afterward, we have a simple representation (HOG image) that captures the basic structure of a face.  
 All we have to do is find the part of our image that looks the most similar to a known trained HOG pattern.  
 For this technique, we use the dlib Python library to generate and view HOG representations of images.  
 ```
@@ -40,6 +44,6 @@ face_encoding = np.array(face_encoder.compute_face_descriptor(image, pose_landma
 
 Finally, we need a classifier (Linear SVM or other classifier) to find the person in our database of known people who has the closest measurements to our test image. We train the classifier with the measurements as input.
 
-Thanks to Adam Geitgey who wrote a great [post](https://medium.com/@ageitgey/machine-learning-is-fun-part-4-modern-face-recognition-with-deep-learning-c3cffc121d78) about this, I followed his pipeline.
+Thanks to Alex Attia who gave me great insights on face recognition.
 
 ![Result](https://github.com/alexattia/Data-Science-Projects/blob/master/FaceRecognition/result.png)
