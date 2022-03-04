@@ -46,4 +46,4 @@ Finally, we need a classifier (Linear SVM or other classifier) to find the perso
 
 Thanks to Alex Attia who gave me great insights on face recognition.
 
-![Result](https://github.com/alexattia/Data-Science-Projects/blob/master/FaceRecognition/result.png)
+![Screenshot](./result.png)
